@@ -1,0 +1,41 @@
+/* universal selector  */
+* {
+    background-color: aqua;
+}
+
+
+/* Type */
+p {
+    background-color: red;
+}
+
+/* Class */
+.test {
+    background-color: blue;
+}
+
+
+/* id */
+#one {
+    background-color: green;
+}
+
+/* pseudo class */
+button:hover {
+    background-color: green;
+}
+
+
+/* pseudo element */
+.test::before {
+    content: "★ ";
+    color: gold;
+    font-size: 1.5em;
+}
+
+/* pseudo element */
+.test::after {
+    content: " ✨";
+    color: lightblue;
+    font-size: 1.5em;
+}
