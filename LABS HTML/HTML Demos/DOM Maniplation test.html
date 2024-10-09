@@ -50,5 +50,22 @@
         }
 
     </script>
+    <h1>Select a Video</h1>
+    <select id="videoDropdown" onchange="navigateToVideo()">
+        <option value="">Select a video</option>
+        <option value="https://www.youtube.com/embed/DQacCB9tDaw">ChatGPT Video</option>
+        <option value="https://www.youtube.com/embed/4IUnol4hLyQ">Copilot Video</option>
+        <option value="https://www.youtube.com/embed/lr87yrvK86w">Bard Video</option>
+    </select>
+
+    <script>
+        function navigateToVideo() {
+            const dropdown = document.getElementById('videoDropdown');
+            const selectedValue = dropdown.value;
+            if (selectedValue) {
+                window.open(selectedValue, '_blank'); // Open the video in a new tab
+            }
+        }
+    </script>
 </body>
 </html>
