@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <!-- <script>
+        console.log("Welcome to JS")
+    </script> -->
+    <script>
+        function internalScript(){
+            console.log("This is internal script")
+        }
+    </script>
+    <script src="external_js_demo.js"></script>
+</head>
+<body>
+    <form>
+
+        <button onclick="alert('welcome'); console.log('Welcome') "> Get message</button>
+        <button onclick="alert('Thank you !');console.log('Thank you !') " > Thank you !</button>
+        <button onclick='internalScript()'> Internal(submit and refresh)</button>
+        <button type="button" onclick='internalScript()'> Internal(Do not refresh) </button>
+        <button type="button" onclick="external_function_demo()">This is for external js demo</button>
+        <button type="button" onclick="loop_demo()">This is for external js loop demo</button>
+    </form>
+</body>
+</html>
