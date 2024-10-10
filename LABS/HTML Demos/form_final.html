@@ -1,7 +1,38 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
+    <script>
+        function validateRegistrationForm() {
+            const name = document.forms["registrationForm"]["name"].value;
+            const password = document.forms["registrationForm"]["password"].value;
+            const address = document.forms["registrationForm"]["address"].value;
+
+            if (!name || !password || !address) {
+                alert("Please fill in all required fields in the registration form.");
+                return false;
+            }
+
+            // Show success message
+            alert("Form submitted successfully!");
+
+            // Get range values
+            const peopleCount = document.forms["registrationForm"]["peopleCount"].value;
+            const spicyMeter = document.forms["registrationForm"]["spicyMeter"].value;
+            const sugarLevel = document.forms["registrationForm"]["sugarLevel"].value;
+
+            // Display range values
+            document.getElementById("rangeValues").innerText = `
+                People count: ${peopleCount}
+                Spicy meter: ${spicyMeter}
+                Sugar Level for Tea/Coffee: ${sugarLevel}
+            `;
+
+            return true; // Allow form submission
+        }
+    </script>
 </head>
 
 <body style="font-family: Arial, sans-serif; background-color: pink; margin: 0; padding: 20px;">
@@ -35,8 +66,8 @@
             height: auto;
             border-radius: 10px;
         }
+        
     </style>
-
 
     <table>
         <tr>
@@ -49,10 +80,8 @@
         </tr>
     </table>
 
-
-
     <div style="background-color: cyan; padding: 50px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
-        <form>
+        <form name="registrationForm" onsubmit="return validateRegistrationForm();">
             <div style="margin-bottom: 20px;">
                 <label style="display: block; margin-bottom: 5px;">Enter your Name:</label>
                 <input type="text" name="name" required
@@ -113,28 +142,30 @@
 
             <div style="margin-bottom: 20px;">
                 <label>People count (1-10):</label>
-                <input type="range" name="range" min="1" max="10" value="1" style="width: 100%;">
-                <output style="font-weight: bold; margin-top: 10px;"></output>
+                <input type="range" name="peopleCount" min="1" max="10" value="1" style="width: 100%;" oninput="this.nextElementSibling.value = this.value">
+                <output style="font-weight: bold; margin-top: 10px;">1</output>
             </div>
 
             <div style="margin-bottom: 20px;">
                 <label>Spicy meter (1-10):</label>
-                <input type="range" name="range" min="1" max="10" value="1" style="width: 100%;">
-                <output style="font-weight: bold; margin-top: 10px;"></output>
+                <input type="range" name="spicyMeter" min="1" max="10" value="1" style="width: 100%;" oninput="this.nextElementSibling.value = this.value">
+                <output style="font-weight: bold; margin-top: 10px;">1</output>
             </div>
+
             <div style="margin-bottom: 20px;">
                 <label>Sugar Level for Tea/Coffee (1-10):</label>
-                <input type="range" name="range" min="1" max="10" value="1" style="width: 100%;">
-                <output style="font-weight: bold; margin-top: 10px;"></output>
+                <input type="range" name="sugarLevel" min="1" max="10" value="1" style="width: 100%;" oninput="this.nextElementSibling.value = this.value">
+                <output style="font-weight: bold; margin-top: 10px;">1</output>
             </div>
 
-
             <input type="submit" value="Register Now!"
-                style="color: red; font-weight: bold; background-color: yellow; height: 50px; width: 48%; border: none;  border-radius: 4px; margin-top: 10px;">
+                style="color: red; font-weight: bold; background-color: yellow; height: 50px; width: 48%; border: none; border-radius: 4px; margin-top: 10px;">
             <input type="reset" value="Reset Form"
                 style="color: red; font-weight: bold; background-color: yellow; height: 50px; width: 48%; border: none; border-radius: 4px; margin-top: 10px;">
         </form>
     </div>
+
+    <div id="rangeValues" style="margin-top: 20px; font-weight: bold;"></div>
 
     <div style="margin-top: 50px;">
         <h1 style="font-style: italic; color: #333;">Audio & Video</h1>
@@ -151,5 +182,4 @@
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 </body>
-
 </html>
