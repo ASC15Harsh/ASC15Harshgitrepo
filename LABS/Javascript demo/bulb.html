@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Theme Changer</title>
+    <style>
+        body {
+            transition: background-color 0.5s;
+        }
+        .dark {
+            background-color: black;
+        }
+        .light {
+            background-color: white;
+        }
+        .bulb {
+            margin: 50px;
+            cursor: pointer;
+            width: 100px; 
+        }
+        .off {
+            opacity: 0.5; 
+        }
+    </style>
+</head>
+<body class="dark">
+    <div id="container" style="width: 250px; height: 250px;">
+        <img src="on.gif" class="bulb" alt="Bulb">
+    </div>
+
+    <script>
+        const body = document.body;
+
+        function toggleBulb(event) {
+            const bulb = event.currentTarget;
+            const isOn = bulb.src.includes('on.gif');
+
+            if (isOn) {
+                
+                bulb.src = 'off.gif';
+                bulb.classList.add('off'); 
+                body.classList.replace('dark', 'light');
+            } else {
+                
+                bulb.src = 'on.gif';
+                bulb.classList.remove('off');
+                
+                const newBulb = bulb.cloneNode(true);
+                newBulb.addEventListener('click', toggleBulb); 
+                document.getElementById('container').appendChild(newBulb);
+                body.classList.replace('light', 'dark');
+            }
+        }
+        const initialBulb = document.querySelector('.bulb');
+        initialBulb.addEventListener('click', toggleBulb);
+    </script>
+</body>
+</html>
