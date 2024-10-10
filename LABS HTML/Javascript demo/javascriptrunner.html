@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <script>
+        // String
+        var str = "Hello, World!";
+        console.log("String:", str);
+        console.log("Type of str:", typeof str);
+        console.log("my name is %s", str);
+
+        // Number
+        var num = 42;
+        console.log("Number:", num);
+        console.log("Type of num:", typeof num);
+
+        console.log("my name is %s and my age is %d", str, num);
+
+        // Boolean
+        var bool = true;
+        console.log("Boolean:", bool);
+        console.log("Type of bool:", typeof bool);
+
+        // Array
+        var arr = [1, 2, 3, 4, 5];
+        console.log("Array:", arr);
+        console.log("Type of arr:", typeof arr);
+
+        var veg = ['carrot', 'brocoli', 'patal', 'gobi'];
+        for (var i = 0; i < veg.length; i++) {
+            console.log(veg[i]);
+        }
+
+        var veg_color = [
+            ["carrot", "orange"],
+            ["brocoli", "green"],
+            ["patal", "green"],
+            ["gobi", "white"]
+        ];
+        console.log(veg_color);
+
+        veg_color.push(["saag", "green"]);
+        veg_color.push(["orange", "orange"]);
+
+
+        for (var i = 0; i < veg_color.length; i++) {
+            console.log(veg_color[i][0] + ":" + veg_color[i][1]);
+        }
+
+        // add mango at index 2
+        veg_color.splice(2, 0, ["Mango", "Yellow"]);
+        console.log("vegColors:", veg_color);
+
+
+        //Assignment on Javascript Arrays :
+        // Good 5 methods, Great 10 methods, Excellent 15 methods
+        // Tabulation of frequently used Array methods with their description
+        // Method          Description
+        // push()          Adds one or more elements to the end of an array and returns the new length of the array.
+        // pop()           Removes the last element from an array and returns that element.
+        // shift()         Removes the first element from an array and returns that element.
+        // unshift()       Adds one or more elements to the beginning of an array and returns the new length of the array.
+        // slice()         Extracts a section of an array and returns a new array.
+        // splice()        Adds or removes elements from an array at a specified index.
+        // concat()        Combines two or more arrays and returns a new array.
+        // join()          Joins all elements of an array into a string.
+        // indexOf()       Returns the first index at which a given element can be found in the array.
+        // lastIndexOf()   Returns the last index at which a given element can be found in the array.
+        // includes()      Determines whether an array includes a certain element.
+        // reverse()       Reverses the elements of an array in place.
+        // sort()          Sorts the elements of an array in place.
+        // filter()        Creates a new array with all elements that pass the test implemented by the provided function.
+        // map()           Creates a new array with the results of calling a provided function on every element in the array.
+        // reduce()        Applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value.
+        // forEach()       Executes a provided function once for each array element.
+        // find()          Returns the first element in an array that satisfies a provided testing function.
+        // findIndex()     Returns the index of the first element in an array that satisfies a provided testing function.
+        // some()          Checks if at least one element in an array satisfies a provided testing function.
+        // every()         Checks if all elements in an array satisfy a provided testing function.
+        // fill()          Fills all the elements of an array from a start index to an end index with a static value.
+
+
+
+        // Object
+        var obj = {
+            name: "John Doe",
+            age: 30,
+            city: "New York"
+        };
+        console.log("Object:", obj);
+        console.log("Type of obj:", typeof obj);
+
+        // Function
+        var func = function () {
+            return "Hello from function!";
+        };
+        console.log("Function:", func);
+        console.log("Type of func:", typeof func);
+
+        // Null
+        var nullVar = null;
+        console.log("Null:", nullVar);
+        console.log("Type of nullVar:", typeof nullVar);
+
+        // Undefined
+        var undefinedVar;
+        console.log("Undefined:", undefinedVar);
+        console.log("Type of undefinedVar:", typeof undefinedVar);
+    </script>
+</body>
+
+</html>

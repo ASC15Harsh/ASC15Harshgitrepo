@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function caseInsensitivekSearch(name, input) {
+            var output = name.toLowerCase().startsWith(input);
+            return output;
+        }
+        console.log(caseInsensitivekSearch('John Doe', 'j'));
+        console.log(caseInsensitivekSearch('John Doe', 'o'));
+        console.log("--------------------------------------------");
+    </script>
+
+
+    <script>
+        function caseInsensitivekSearch(name, input) {
+            var output = name.toLowerCase().endsWith(input);
+            return output;
+        }
+        console.log(caseInsensitivekSearch('John Doe', 'e'));
+        console.log(caseInsensitivekSearch('John Doe', 'E'));
+        console.log("--------------------------------------------");
+    </script>
+
+    <script>
+        var functionObj = function caseInsensitivekSearch(name, input) {
+            var output = name.toLowerCase().endsWith(input);
+            return output;
+        }
+        console.log(functionObj('John Doe', 'e'));
+        console.log(functionObj('John Doe', 'E'));
+        console.log("--------------------------------------------");
+    </script>
+
+<script>
+    var functionObj =   function caseInsensitiveSearch(name, input) {
+          var output = name.toLowerCase().startsWith(input);
+          return output;
+      }
+      // console.log(caseInsensitiveSearch('John Doe', 'j'));
+      console.log(functionObj('John Doe', 'o'));
+
+      //concise arrow function
+      var functionObj1 = (name, input) => name.toLowerCase().startsWith(input);
+      console.log(functionObj1('John Doe', 'j'));
+
+      console.log('(name, input) => name.toLowerCase().startsWith(input)');
+      console.log(((name, input) => name.toLowerCase().startsWith(input))("John Doe",'j'));
+
+      // console.log(((name, input) =>  name.toLowerCase().startsWith(input))("John",'j') );
+
+  </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Click function + f12 or click ctrl+sift+i
+</body>
+
+</html>
