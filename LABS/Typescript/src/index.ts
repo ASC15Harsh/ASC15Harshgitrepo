@@ -157,7 +157,8 @@ interface Square {
     sideLength: number;
 }
 
-// usage
+// usage of union-types 
+
 function getArea(shape: Circle | Square): number {
     switch (shape.kind) {
         case "circle":
