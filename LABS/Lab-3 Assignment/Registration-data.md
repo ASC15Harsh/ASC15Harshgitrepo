@@ -1,4 +1,4 @@
-```Json
+```json
 [
   {
     "name": "Harsh Mishra",
