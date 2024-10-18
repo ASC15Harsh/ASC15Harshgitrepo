@@ -167,3 +167,12 @@ function getArea(shape: Circle | Square): number {
             return shape.sideLength ** 2;
     }
 }
+
+
+
+const carea: Circle = {
+    kind: "circle",
+    radius: 10
+};
+
+console.log(getArea(carea));
