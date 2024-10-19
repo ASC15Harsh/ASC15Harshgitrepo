@@ -18,4 +18,7 @@ export class ProductManager{
         const prodIndex = this.products.findIndex(products => products.id === id);
         this.products[prodIndex] = { ...this.products[prodIndex], ...updates };
       }
+      findById(id: number): Product | undefined {
+        return this.products.find(products => products.id === id);
+    }
 }

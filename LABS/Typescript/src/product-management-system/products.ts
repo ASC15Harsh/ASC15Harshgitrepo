@@ -6,7 +6,7 @@ export interface Product{
     rating: number;
     reviewscount: number;
     brand: string;
-    availability: string;
+    availability: any;
     //? makes the property optional
     color?: string;
     storage?: string;

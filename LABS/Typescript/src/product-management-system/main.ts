@@ -2,6 +2,7 @@ console.log("Welcome to Product Management system App");
 
 import { ProductManager } from "./productManager";
 import { Product } from "./products";
+import * as readlineSync from 'readline-sync';
 
 const pm = new ProductManager();
 
@@ -98,3 +99,20 @@ console.log("All Products after adding id : 6:", pm.listProducts());
 pm.updateProduct(6, { price : 89.99});
 
 console.log("All Products after updating price of id 6 is :", pm.listProducts());
+
+const id = readlineSync.question('Enter product ID: ');
+const name = readlineSync.question('Enter product name: ');
+const category = readlineSync.question('Enter product category: ');
+const price = parseFloat(readlineSync.question('Enter product price: '));
+const rating = parseFloat(readlineSync.question('Enter product rating: '));
+const reviewscount = parseInt(readlineSync.question('Enter product reviews count: '));
+const brand = readlineSync.question('Enter product brand: ');
+const availability = readlineSync.question('Enter product availability (true/false): ').toLowerCase() === 'true';
+const releaseDate = readlineSync.question('Enter product release date (YYYY-MM-DD): ');
+
+const newprod: Product = { id: parseInt(id), name, category, price, rating, reviewscount, brand, availability, releaseDate };
+
+pm.addProduct(newprod);
+console.log("All Products after adding new product is", pm.listProducts());
+const findproductbyid = parseInt(readlineSync.question('Enter product ID to find the product: '));
+console.log('Product details are:', pm.findById(findproductbyid));
