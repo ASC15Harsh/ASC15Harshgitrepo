@@ -1,4 +1,5 @@
 import * as readlineSync from 'readline-sync';
+import * as fs from 'fs';
 import { ProductManager } from "./productManager";
 import { Product } from "./products";
 
@@ -6,69 +7,72 @@ console.log("Welcome to the Product Management System App");
 
 const pm = new ProductManager();
 
-const products: Product[] = [
-    {
-        id: 1,
-        name: "Smartphone X1",
-        category: "Electronics",
-        price: 799.99,
-        rating: 4.5,
-        reviewscount: 250,
-        brand: "Brand A",
-        availability: "In Stock",
-        color: "Black",
-        storage: "128GB",
-        releaseDate: "2023-03-15"
-    },
-    {
-        id: 2,
-        name: "Laptop Pro 15",
-        category: "Computers",
-        price: 1299.99,
-        rating: 4.8,
-        reviewscount: 150,
-        brand: "Brand B",
-        availability: "In Stock",
-        color: "Silver",
-        storage: "512GB",
-        releaseDate: "2022-11-10"
-    },
-    {
-        id: 3,
-        name: "Wireless Headphones",
-        category: "Audio",
-        price: 199.99,
-        rating: 4.2,
-        reviewscount: 300,
-        brand: "Brand C",
-        availability: "Out of Stock",
-        releaseDate: "2021-07-22"
-    },
-    {
-        id: 4,
-        name: "Smartwatch Z",
-        category: "Wearables",
-        price: 249.99,
-        rating: 4.0,
-        reviewscount: 120,
-        brand: "Brand D",
-        availability: "In Stock",
-        color: "Rose Gold",
-        releaseDate: "2023-05-05"
-    },
-    {
-        id: 5,
-        name: "4K Ultra HD TV",
-        category: "Home Appliances",
-        price: 1499.99,
-        rating: 4.7,
-        reviewscount: 80,
-        brand: "Brand E",
-        availability: "In Stock",
-        color: "Black",
-        releaseDate: "2022-01-15"
-    }
-];
+const products: Product[] = JSON.parse(fs.readFileSync('product.json', 'utf-8'));
+
+
+// const products: Product[] = [
+//     {
+//         id: 1,
+//         name: "Smartphone X1",
+//         category: "Electronics",
+//         price: 799.99,
+//         rating: 4.5,
+//         reviewscount: 250,
+//         brand: "Brand A",
+//         availability: "In Stock",
+//         color: "Black",
+//         storage: "128GB",
+//         releaseDate: "2023-03-15"
+//     },
+//     {
+//         id: 2,
+//         name: "Laptop Pro 15",
+//         category: "Computers",
+//         price: 1299.99,
+//         rating: 4.8,
+//         reviewscount: 150,
+//         brand: "Brand B",
+//         availability: "In Stock",
+//         color: "Silver",
+//         storage: "512GB",
+//         releaseDate: "2022-11-10"
+//     },
+//     {
+//         id: 3,
+//         name: "Wireless Headphones",
+//         category: "Audio",
+//         price: 199.99,
+//         rating: 4.2,
+//         reviewscount: 300,
+//         brand: "Brand C",
+//         availability: "Out of Stock",
+//         releaseDate: "2021-07-22"
+//     },
+//     {
+//         id: 4,
+//         name: "Smartwatch Z",
+//         category: "Wearables",
+//         price: 249.99,
+//         rating: 4.0,
+//         reviewscount: 120,
+//         brand: "Brand D",
+//         availability: "In Stock",
+//         color: "Rose Gold",
+//         releaseDate: "2023-05-05"
+//     },
+//     {
+//         id: 5,
+//         name: "4K Ultra HD TV",
+//         category: "Home Appliances",
+//         price: 1499.99,
+//         rating: 4.7,
+//         reviewscount: 80,
+//         brand: "Brand E",
+//         availability: "In Stock",
+//         color: "Black",
+//         releaseDate: "2022-01-15"
+//     }
+// ];
 
 products.forEach(product => pm.addProduct(product));
 
@@ -103,12 +107,14 @@ while (!exit) {
 
             const newprod: Product = { id, name, category, price, rating, reviewscount, brand, availability, releaseDate };
             pm.addProduct(newprod);
+            pm.saveProductsToFile();
             console.log("Product added successfully.");
             break;
 
         case '3':
             const removeId = parseInt(readlineSync.question('Enter product ID to remove: '));
             pm.removeProduct(removeId);
+            pm.saveProductsToFile();
             console.log(`Product with ID ${removeId} removed successfully.`);
             break;
 
@@ -121,8 +127,11 @@ while (!exit) {
             if (updateRating) updates.rating = parseFloat(updateRating);
             const updateReviewCount = readlineSync.question('Enter new review count (leave blank to skip): ');
             if (updateReviewCount) updates.reviewscount = parseInt(updateReviewCount);
+            const updateavail = readlineSync.question('Enter new availability (leave blank to skip): ');
+            if (updateavail) updates.availability = parseFloat(updateavail);
 
             pm.updateProduct(updateId, updates);
+            pm.saveProductsToFile();
             console.log(`Product with ID ${updateId} updated successfully.`);
             break;
 

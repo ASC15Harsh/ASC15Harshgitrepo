@@ -1,4 +1,4 @@
-
+import * as fs from 'fs';
 import { Product } from "./products";
 export class ProductManager{
     private products: Product[] = [];
@@ -21,4 +21,6 @@ export class ProductManager{
       findById(id: number): Product | undefined {
         return this.products.find(products => products.id === id);
     }
-}
+    saveProductsToFile(): void {
+        fs.writeFileSync('product.json', JSON.stringify(this.products, null, 2), 'utf-8');
+}}

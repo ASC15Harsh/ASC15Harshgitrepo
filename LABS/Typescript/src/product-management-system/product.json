@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Smartphone X1",
+    "category": "Electronics",
+    "price": 799.99,
+    "rating": 4.5,
+    "reviewscount": 250,
+    "brand": "Brand A",
+    "availability": "In Stock",
+    "color": "Black",
+    "storage": "128GB",
+    "releaseDate": "2023-03-15"
+  },
+  {
+    "id": 2,
+    "name": "Laptop Pro 15",
+    "category": "Computers",
+    "price": 1299.99,
+    "rating": 4.8,
+    "reviewscount": 150,
+    "brand": "Brand B",
+    "availability": "In Stock",
+    "color": "Silver",
+    "storage": "512GB",
+    "releaseDate": "2022-11-10"
+  },
+  {
+    "id": 3,
+    "name": "Wireless Headphones",
+    "category": "Audio",
+    "price": 199.99,
+    "rating": 4.2,
+    "reviewscount": 300,
+    "brand": "Brand C",
+    "availability": "Out of Stock",
+    "releaseDate": "2021-07-22"
+  },
+  {
+    "id": 4,
+    "name": "Smartwatch Z",
+    "category": "Wearables",
+    "price": 249.99,
+    "rating": 4,
+    "reviewscount": 120,
+    "brand": "Brand D",
+    "availability": "In Stock",
+    "color": "Rose Gold",
+    "releaseDate": "2023-05-05"
+  },
+  {
+    "id": 5,
+    "name": "4K Ultra HD TV",
+    "category": "Home Appliances",
+    "price": 1499.99,
+    "rating": 4.7,
+    "reviewscount": 80,
+    "brand": "Brand E",
+    "availability": "In Stock",
+    "color": "Black",
+    "releaseDate": "2022-01-15"
+  },
+  {
+    "id": 6,
+    "name": "test",
+    "category": "testing",
+    "price": 299.99,
+    "rating": 10,
+    "reviewscount": 5,
+    "brand": "checking",
+    "availability": null,
+    "releaseDate": "2024-10-24"
+  }
+]
