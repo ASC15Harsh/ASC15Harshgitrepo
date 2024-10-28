@@ -1,28 +1,4 @@
 {
   "employees": [
-    {
-      "id": "1",
-      "name": "Harsh",
-      "age": 22,
-      "city": "India"
-    },
-    {
-      "id": "3",
-      "name": "Pookie",
-      "age": 24,
-      "city": "dreamworld"
-    },
-    {
-      "id": 0,
-      "name": "Jalaj",
-      "age": 23,
-      "city": "Bihar"
-    },
-    {
-      "id": 0,
-      "name": "Ayush girl",
-      "age": 18,
-      "city": "Bangkok"
-    }
   ]
 }

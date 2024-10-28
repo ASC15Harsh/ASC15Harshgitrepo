@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   employees: Employee[] = [];
   newEmployee: Employee = new Employee();
   editingEmployee?: Employee;
+  highestId: number = 0; 
 
   constructor(public employeeService: EmployeeService) {}
 
@@ -28,6 +29,8 @@ export class AppComponent implements OnInit {
   }
 
   addEmployee() {
+    this.newEmployee.id = (this.highestId + 1).toString(); 
+    this.highestId = this.highestId + 1; 
     this.employeeService.addEmployee(this.newEmployee).subscribe(() => {
       this.loadEmployees();
       this.newEmployee = new Employee(); 
@@ -47,9 +50,10 @@ export class AppComponent implements OnInit {
     }
   }
 
-  deleteEmployee(id: number) {
-    this.employeeService.deleteEmployee(id).subscribe(() => {
+deleteEmployee(id: string) { 
+  console.log('Deleting Employee ID:', id);
+  this.employeeService.deleteEmployee(Number(id)).subscribe(() => { 
       this.loadEmployees();
-    });
-  }
+  });
+}
 }
