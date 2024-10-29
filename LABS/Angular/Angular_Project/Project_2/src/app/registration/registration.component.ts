@@ -10,7 +10,8 @@ import { FormsModule } from '@angular/forms';
     imports: [FormsModule]
 })
 export class RegistrationComponent {
-    name = '';
+    name : string = '';
+    //It is not typesafe because of Implicit typecasting.
     password = '';
     address = '';
     beverage: string[] = [];
@@ -22,9 +23,10 @@ export class RegistrationComponent {
     spicyMeter = 1;
     sugarLevel = 1;
     registrationData: any[] = [];
-
+    //name =10;
     ngOnInit() {
         this.loadRegistrationData();
+      //  this.name=10;
     }
       chatgpt() {
     const videoContainer = document.getElementById('videoContainer');
