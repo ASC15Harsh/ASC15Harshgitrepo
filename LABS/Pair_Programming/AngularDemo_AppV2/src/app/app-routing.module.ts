@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
 // The RouterModule.forRoot() method is used to configure the router at the application's root level.
 // Why RouterModule?
 // The RouterModule is a separate Angular module that provides the necessary service providers and for routing.
@@ -10,6 +11,8 @@ import { AppComponent } from './app.component';
 
 const routes : Routes = [
   // Route 1 : Login Component
+  { path : '', component : LoginComponent },
+  // { path : 'login', component : LoginComponent },
 ];
 // Routes is an array of route configurations. Each route configuration maps a URL path to a component.
 // The routes array is imported from the @angular/router package.
