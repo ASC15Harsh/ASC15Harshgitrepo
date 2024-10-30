@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 // The <router-outlet> directive is used to render the component based on the current route.
 
 const routes : Routes = [
+  // Route 1 : Login Component
 ];
 // Routes is an array of route configurations. Each route configuration maps a URL path to a component.
 // The routes array is imported from the @angular/router package.
