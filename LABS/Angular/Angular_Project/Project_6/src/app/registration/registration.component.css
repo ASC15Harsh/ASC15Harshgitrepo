@@ -1,0 +1,75 @@
+::ng-deep body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    margin: 0;
+    /* padding: 20px; */
+    color: black;
+} 
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.form-area,
+.summary-table {
+    background-color: cyan;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+    flex: 1;
+    margin: 0 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #555;
+}
+
+th {
+    padding: 10px;
+    text-align: left;
+    background-color: #444;
+    color: white;
+}
+
+h1 {
+    font-style: italic;
+    border: solid 3px aqua;
+    background-color: black;
+    color: #fff;
+    font-size: 40px;
+    margin: 0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+textarea {
+    height: 60px;
+    resize: none;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+textarea:focus {
+    border: 2px solid blue;
+}
+
+.audio-video {
+    margin-top: 50px;
+}
+
+.registration-data {
+    margin-top: 20px;
+    background-color: cyan;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}

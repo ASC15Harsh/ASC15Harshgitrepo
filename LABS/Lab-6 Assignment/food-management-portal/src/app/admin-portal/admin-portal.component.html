@@ -1,0 +1,105 @@
+<button class="logout-btn" (click)="logout()">Logout</button>
+
+<br />
+<h1>Food Orders Table</h1>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>Order ID</th>
+            <th>Customer Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Delivery Method</th>
+            <th>Payment Method</th>
+            <th>Status</th>
+            <th>Total Price</th>
+            <th>Food Preferences</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orders">
+            <td>{{ order.id }}</td>
+            <td>{{ order.customerName }}</td>
+            <td>{{ order.customerPhone }}</td>
+            <td>{{ order.customerEmail }}</td>
+            <td>{{ order.deliveryMethod }}</td>
+            <td>{{ order.paymentMethod }}</td>
+            <td>{{ order.orderStatus }}</td>
+            <td>{{ order.totalPrice | currency }}</td>
+            <td>
+                <ul>
+                    <li *ngFor="let foodItem of foodItems">
+                        <span *ngIf="order.foodPreferences[foodItem.id]">
+                            {{ foodItem.name }} - {{ order.foodPreferences[foodItem.id] }} 
+                        </span>
+                    </li>
+                </ul>
+            </td>
+            <td>
+                <button (click)="editOrder(order)">Edit</button>
+                <button (click)="deleteOrder(order.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h4 *ngIf="editingOrder">Update Food Order</h4>
+<form *ngIf="editingOrder" (ngSubmit)="updateOrder()">
+    <!-- Order ID (Disabled for editing) -->
+    <input [(ngModel)]="editingOrder.id" name="id" placeholder="Order ID" disabled />
+
+    <!-- Customer Name -->
+    <input [(ngModel)]="editingOrder.customerName" name="customerName" required />
+
+    <!-- Customer Phone -->
+    <input [(ngModel)]="editingOrder.customerPhone" name="customerPhone" required />
+
+    <!-- Customer Email -->
+    <input [(ngModel)]="editingOrder.customerEmail" name="customerEmail" required type="email" />
+
+    <!-- Delivery Address -->
+    <input [(ngModel)]="editingOrder.deliveryAddress" name="deliveryAddress" required />
+
+    <!-- Delivery Method -->
+    <select [(ngModel)]="editingOrder.deliveryMethod" name="deliveryMethod" required>
+        <option value="Delivery">Delivery</option>
+        <option value="Pickup">Pickup</option>
+    </select>
+
+    <!-- Payment Method -->
+    <select [(ngModel)]="editingOrder.paymentMethod" name="paymentMethod" required>
+        <option value="Credit Card">Credit Card</option>
+        <option value="Cash">Cash</option>
+        <option value="Online Payment">Online Payment</option>
+    </select>
+
+    <!-- Delivery Instructions -->
+    <textarea [(ngModel)]="editingOrder.deliveryInstructions" name="deliveryInstructions" placeholder="Delivery Instructions (optional)"></textarea>
+
+    <!-- Order Status -->
+    <select [(ngModel)]="editingOrder.orderStatus" name="orderStatus" required>
+        <option value="Pending">Pending</option>
+        <option value="Completed">Completed</option>
+        <option value="Cancelled">Cancelled</option>
+    </select>
+
+    <!-- Total Price -->
+    <input [(ngModel)]="editingOrder.totalPrice" name="totalPrice" required type="number" />
+
+    <!-- Food Preferences Section -->
+    <h5>Food Preferences</h5>
+    <div *ngFor="let foodItem of foodItems">
+        <div class="food-preference-item">
+            <label for="food{{foodItem.id}}">{{ foodItem.name }}</label>
+            <select [(ngModel)]="editingOrder.foodPreferences[foodItem.id]" name="food{{foodItem.id}}">
+                <option value="" disabled selected>Select Quantity</option>
+                <option *ngFor="let quantity of foodItem.availableQuantities" [value]="quantity">{{ quantity }}</option>
+            </select>
+        </div>
+    </div>
+
+    <button type="submit">Update Order</button>
+    <button type="button" (click)="editingOrder = undefined">Cancel</button>
+</form>
