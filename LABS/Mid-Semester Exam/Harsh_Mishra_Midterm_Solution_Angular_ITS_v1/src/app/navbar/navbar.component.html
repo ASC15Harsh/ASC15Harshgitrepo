@@ -1,0 +1,14 @@
+<nav class="navbar">
+  <div class="navbar-container">
+      <ul class="navbar-links" [ngClass]="{'active': isMenuOpen}">
+          <li><a href="/add-issue">ADD ISSUE</a></li>
+          <li><a href="/issue-list">ISSUE LIST</a></li>
+          <li><a href="/issue-edit">EDIT ISSUE</a></li>
+      </ul>
+  </div>
+</nav>
+<nav>
+  <button (click)="logout()">Logout</button>
+</nav>
+
+<h1>WELCOME TO ISSUE TRACKING SYSTEM</h1>

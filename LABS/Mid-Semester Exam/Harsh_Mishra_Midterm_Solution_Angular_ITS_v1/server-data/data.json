@@ -1,0 +1,94 @@
+{
+  "issues": [
+    {
+      "id": "1",
+      "title": "Bug in login page",
+      "description": "There is a bug on the login page where users cannot submit their login details.",
+      "status": "Closed",
+      "priority": "High",
+      "assignee": "John Doe",
+      "date": "2024-11-14T08:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "title": "UI Improvement in dashboard",
+      "description": "Improve the user interface of the dashboard to make it more user-friendly.",
+      "status": "Closed",
+      "priority": "Medium",
+      "assignee": "Jane Smith",
+      "date": "2024-11-14T08:30:00.000Z"
+    },
+    {
+      "id": "3",
+      "title": "Database connection issue",
+      "description": "The application is unable to connect to the database after the recent update.",
+      "status": "Resolved",
+      "priority": "High",
+      "assignee": "Michael Lee",
+      "date": "2024-11-14T09:00:00.000Z"
+    },
+    {
+      "id": "4",
+      "title": "Feature request: Dark mode",
+      "description": "Users have requested an option for dark mode in the app settings.",
+      "status": "Open",
+      "priority": "Low",
+      "assignee": "Emily Watson",
+      "date": "2024-11-15T10:00:00.000Z"
+    },
+    {
+      "id": "5",
+      "title": "API rate limit exceeded",
+      "description": "The API is returning rate limit errors, causing failures in user requests.",
+      "status": "In Progress",
+      "priority": "High",
+      "assignee": "John Doe",
+      "date": "2024-11-15T10:30:00.000Z"
+    },
+    {
+      "id": "6",
+      "title": "Payment gateway integration bug",
+      "description": "The payment gateway is failing to process transactions after the recent update.",
+      "status": "In Progress",
+      "priority": "Critical",
+      "assignee": "Michael Lee",
+      "date": "2024-11-15T11:00:00.000Z"
+    },
+    {
+      "id": "7",
+      "title": "Mobile app crash on startup",
+      "description": "The mobile app crashes immediately upon launch for users on iOS.",
+      "status": "Resolved",
+      "priority": "High",
+      "assignee": "Jane Smith",
+      "date": "2024-11-15T11:30:00.000Z"
+    },
+    {
+      "id": "9",
+      "title": "Server downtime due to overload",
+      "description": "The server is experiencing downtime due to high traffic and resource overload.",
+      "status": "In Progress",
+      "priority": "Critical",
+      "assignee": "Sarah Clark",
+      "date": "2024-11-15T12:30:00.000Z"
+    },
+    {
+      "id": "10",
+      "title": "KBCK ",
+      "description": "KBCK ",
+      "priority": "Low",
+      "status": "Resolved",
+      "assignee": "KBCK ",
+      "date": "2024-11-14T08:57:30.678Z"
+    },
+    {
+      "id": "11",
+      "title": "VGJ",
+      "description": "VGJ",
+      "priority": "Low",
+      "status": "Open",
+      "assignee": "",
+      "date": "2024-11-14T08:57:54.383Z"
+    }
+  ]
+}

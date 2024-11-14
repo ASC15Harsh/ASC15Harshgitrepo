@@ -1,0 +1,45 @@
+
+<button class="back-btn" (click)="goBack()">Back</button>
+
+
+<div>
+  <label for="search">Search:</label>
+  <input
+    type="text"
+    id="search"
+    [(ngModel)]="searchQuery"
+    placeholder="Search by title, description, assignee..."
+    (input)="searchIssues()"
+  />
+</div>
+
+<h3>Available Issues</h3>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Priority</th>
+      <th>Assignee</th>
+      <th>Date</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let issue of filteredIssues">
+      <td>{{ issue.id }}</td>
+      <td>{{ issue.title }}</td>
+      <td>{{ issue.description }}</td>
+      <td>{{ issue.status }}</td>
+      <td>{{ issue.priority }}</td>
+      <td>{{ issue.assignee }}</td>
+      <td>{{ issue.date | date:'short' }}</td> 
+      <td>
+        <button type="button" (click)="updateStatus(issue)">Edit Status</button>
+        <button type="button" (click)="deleteIssue(issue)">Delete Issue</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
