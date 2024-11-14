@@ -76,23 +76,3 @@ button:last-child:hover {
 .back-btn:hover {
   background-color: #d32f2f;
 }
-
-@media (max-width: 768px) {
-  table {
-    font-size: 14px;
-  }
-
-  th, td {
-    padding: 8px;
-  }
-
-  button {
-    font-size: 12px;
-    padding: 6px 12px;
-  }
-
-  .back-btn {
-    font-size: 14px;
-    padding: 8px 16px;
-  }
-}

@@ -1,7 +1,6 @@
-// issues-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data-service';
-import { Issue } from '../model/data.model'; // Import the Issue model
+import { Issue } from '../model/data.model'; 
 import { Router } from '@angular/router';
 
 @Component({
