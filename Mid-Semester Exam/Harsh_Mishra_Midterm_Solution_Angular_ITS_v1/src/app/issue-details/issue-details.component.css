@@ -1,0 +1,165 @@
+.search-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.search-row div {
+  flex: 1 1 180px;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-row label {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.search-row input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.search-row input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.search-row input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.search-row div:nth-child(4),
+.search-row div:nth-child(5),
+.search-row div:nth-child(6),
+.search-row div:nth-child(7) {
+  margin-right: 0;
+}
+
+@media (max-width: 768px) {
+  .search-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-row div {
+    margin-bottom: 15px;
+    flex: 1 1 auto;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background-color: #3498db;
+  color: #fff;
+  text-align: left;
+}
+
+th {
+  padding: 12px 15px;
+  font-weight: bold;
+}
+
+tbody tr {
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #e1e1e1;
+}
+
+td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+button {
+  padding: 8px 16px;
+  margin: 4px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #3498db;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+button:last-child {
+  background-color: #e74c3c;
+}
+
+button:last-child:hover {
+  background-color: #c0392b;
+}
+
+.back-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.back-btn:hover {
+  background-color: #d32f2f;
+}
+
+select {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+select:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.filters {
+  margin-bottom: 20px;
+}
+
+.filters label {
+  margin-right: 10px;
+}
+
+.filters input {
+  margin-right: 20px;
+}
