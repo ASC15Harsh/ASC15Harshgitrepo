@@ -4,7 +4,7 @@
       "id": "1",
       "title": "Bug in login page",
       "description": "There is a bug on the login page where users cannot submit their login details.",
-      "status": "Closed",
+      "status": "In Progress",
       "priority": "High",
       "assignee": "John Doe",
       "date": "2024-11-14T08:00:00.000Z"
@@ -71,24 +71,6 @@
       "priority": "Critical",
       "assignee": "Sarah Clark",
       "date": "2024-11-15T12:30:00.000Z"
-    },
-    {
-      "id": "10",
-      "title": "KBCK ",
-      "description": "KBCK ",
-      "priority": "Low",
-      "status": "Resolved",
-      "assignee": "KBCK ",
-      "date": "2024-11-14T08:57:30.678Z"
-    },
-    {
-      "id": "11",
-      "title": "VGJ",
-      "description": "VGJ",
-      "priority": "Low",
-      "status": "Open",
-      "assignee": "",
-      "date": "2024-11-14T08:57:54.383Z"
     }
   ]
 }

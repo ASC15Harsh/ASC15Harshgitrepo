@@ -11,12 +11,19 @@ import { Issue } from '../model/data.model';
 export class IssueDetailsComponent implements OnInit {
   issues: Issue[] = []; 
   filteredIssues: Issue[] = []; 
-  searchQuery: string = ''; 
+  searchQuery: { 
+    id: string, 
+    title: string, 
+    description: string, 
+    status: string, 
+    priority: string, 
+    assignee: string, 
+    date: string 
+  } = { id: '', title: '', description: '', status: '', priority: '', assignee: '', date: '' }; 
 
   constructor(private dataService: DataService, private router: Router) {}
 
   ngOnInit(): void {
-   
     this.dataService.getIssues().subscribe((data: Issue[]) => {
       this.issues = data;
       this.filteredIssues = data;
@@ -24,14 +31,19 @@ export class IssueDetailsComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigate(['/navbar']); 
+    this.router.navigate(['/navbar']);
   }
+
   searchIssues() {
     this.filteredIssues = this.issues.filter(issue => {
       return (
-        issue.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-        issue.description.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-        issue.assignee.toLowerCase().includes(this.searchQuery.toLowerCase())
+        (this.searchQuery.id === '' || issue.id.toString().includes(this.searchQuery.id)) &&
+        (this.searchQuery.title === '' || issue.title.toLowerCase().includes(this.searchQuery.title.toLowerCase())) &&
+        (this.searchQuery.description === '' || issue.description.toLowerCase().includes(this.searchQuery.description.toLowerCase())) &&
+        (this.searchQuery.status === '' || issue.status.toLowerCase().includes(this.searchQuery.status.toLowerCase())) &&
+        (this.searchQuery.priority === '' || issue.priority.toLowerCase().includes(this.searchQuery.priority.toLowerCase())) &&
+        (this.searchQuery.assignee === '' || issue.assignee.toLowerCase().includes(this.searchQuery.assignee.toLowerCase())) &&
+        (this.searchQuery.date === '' || issue.date.includes(this.searchQuery.date))
       );
     });
   }
@@ -70,7 +82,6 @@ export class IssueDetailsComponent implements OnInit {
   deleteIssue(issue: Issue): void {
     this.dataService.deleteIssue(issue.id).subscribe(
       () => {
-    
         this.issues = this.issues.filter(i => i.id !== issue.id);
         this.filteredIssues = [...this.issues];
       },

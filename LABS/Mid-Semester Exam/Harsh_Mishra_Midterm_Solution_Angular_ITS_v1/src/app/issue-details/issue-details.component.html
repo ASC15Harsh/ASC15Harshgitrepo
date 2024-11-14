@@ -1,19 +1,81 @@
-
 <button class="back-btn" (click)="goBack()">Back</button>
 
+<h3>Available Issues</h3>
 
-<div>
-  <label for="search">Search:</label>
-  <input
-    type="text"
-    id="search"
-    [(ngModel)]="searchQuery"
-    placeholder="Search by title, description, assignee..."
-    (input)="searchIssues()"
-  />
+
+<div class="search-row">
+  <div>
+    <label for="search-id">ID:</label>
+    <input
+      type="text"
+      id="search-id"
+      [(ngModel)]="searchQuery.id"
+      placeholder="Search by ID"
+      (input)="searchIssues()"
+    />
+  </div>
+  <div>
+    <label for="search-title">Title:</label>
+    <input
+      type="text"
+      id="search-title"
+      [(ngModel)]="searchQuery.title"
+      placeholder="Search by Title"
+      (input)="searchIssues()"
+    />
+  </div>
+  <div>
+    <label for="search-description">Description:</label>
+    <input
+      type="text"
+      id="search-description"
+      [(ngModel)]="searchQuery.description"
+      placeholder="Search by Description"
+      (input)="searchIssues()"
+    />
+  </div>
+  <div>
+    <label for="search-status">Status:</label>
+    <input
+      type="text"
+      id="search-status"
+      [(ngModel)]="searchQuery.status"
+      placeholder="Search by Status"
+      (input)="searchIssues()"
+    />
+  </div>
+  <div>
+    <label for="search-priority">Priority:</label>
+    <input
+      type="text"
+      id="search-priority"
+      [(ngModel)]="searchQuery.priority"
+      placeholder="Search by Priority"
+      (input)="searchIssues()"
+    />
+  </div>
+  <div>
+    <label for="search-assignee">Assignee:</label>
+    <input
+      type="text"
+      id="search-assignee"
+      [(ngModel)]="searchQuery.assignee"
+      placeholder="Search by Assignee"
+      (input)="searchIssues()"
+    />
+  </div>
+  <div>
+    <label for="search-date">Date:</label>
+    <input
+      type="text"
+      id="search-date"
+      [(ngModel)]="searchQuery.date"
+      placeholder="Search by Date"
+      (input)="searchIssues()"
+    />
+  </div>
 </div>
 
-<h3>Available Issues</h3>
 <table>
   <thead>
     <tr>
@@ -35,7 +97,7 @@
       <td>{{ issue.status }}</td>
       <td>{{ issue.priority }}</td>
       <td>{{ issue.assignee }}</td>
-      <td>{{ issue.date | date:'short' }}</td> 
+      <td>{{ issue.date | date:'short' }}</td>
       <td>
         <button type="button" (click)="updateStatus(issue)">Edit Status</button>
         <button type="button" (click)="deleteIssue(issue)">Delete Issue</button>
