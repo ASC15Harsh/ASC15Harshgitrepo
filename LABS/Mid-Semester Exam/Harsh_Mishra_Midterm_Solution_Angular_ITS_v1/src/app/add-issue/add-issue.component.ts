@@ -22,7 +22,13 @@ export class AddIssueComponent implements OnInit {
   constructor(private dataService: DataService, private router: Router) {}
 
   ngOnInit(): void {}
+
   addNewIssue(): void {
+    if (!this.issue.title || !this.issue.description || !this.issue.priority || !this.issue.status || !this.issue.assignee) {
+      alert('Please fill up all the details before submitting the form.');
+      return;  
+    }
+
     this.issue.date = new Date().toISOString();
     
     this.dataService.addIssue(this.issue).subscribe(() => {
@@ -30,6 +36,7 @@ export class AddIssueComponent implements OnInit {
       alert("Issue added successfully");
     });
   }
+
   resetForm(): void {
     this.issue = {
       id: '',

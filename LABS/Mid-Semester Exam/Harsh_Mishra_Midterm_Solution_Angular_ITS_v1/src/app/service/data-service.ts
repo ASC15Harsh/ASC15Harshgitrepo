@@ -25,7 +25,6 @@ export class DataService {
   addIssue(newIssue: Issue): Observable<Issue> {
     return this.getIssues().pipe(
       map((issues) => {
-    
         const maxId = issues.reduce((max, issue) => Math.max(Number(max), Number(issue.id)), 0);
         newIssue.id = (maxId + 1).toString();  
         return newIssue;
