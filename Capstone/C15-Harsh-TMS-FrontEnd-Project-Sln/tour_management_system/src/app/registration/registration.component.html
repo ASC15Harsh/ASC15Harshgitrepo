@@ -1,0 +1,81 @@
+<button type="button" (click)="back()">Back</button>
+  <div class="container">
+    
+    <h2>{{ admin.id ? 'Edit Admin' : 'Register New Admin' }}</h2>
+    <form (ngSubmit)="onSubmit()" #adminForm="ngForm">
+      
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-control" [(ngModel)]="admin.email" required />
+        <div *ngIf="emailInvalid" class="error-message">Please write correct email with &#64;gmail.com</div>
+        <div *ngIf="emailTaken" class="error-message">Email is already in use.</div>
+      </div>
+  
+      
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" class="form-control" [(ngModel)]="admin.name" required pattern="^[A-Za-z ]+$" />
+        <div *ngIf="nameError" class="error-message">Name can only contain alphabets and spaces.</div>
+      </div>
+  
+ 
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" name="phone" class="form-control" [(ngModel)]="admin.phone_number" required />
+        <div *ngIf="phoneInvalid" class="error-message">Please enter exactly 10 digits.</div>
+        <div *ngIf="phoneTaken" class="error-message">Phone number is already in use.</div>
+      </div>
+  
+ 
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" [(ngModel)]="admin.password" required 
+               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" />
+        <div *ngIf="passwordError" class="error-message">Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.</div>
+      </div>
+  
+    
+      <button type="submit" class="btn btn-primary">{{ admin.id ? 'Update Admin' : 'Register' }}</button>
+    </form>
+  
+  
+    <div *ngIf="registrationSuccess" class="alert alert-success mt-3">
+      Registration successful!
+    </div>
+    <div *ngIf="registrationError" class="alert alert-danger mt-3">
+      There was an error with the registration. Please try again.
+    </div>
+    <div class="form-group">
+      <br>
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" class="form-control" [(ngModel)]="searchTerm" 
+             (ngModelChange)="filterAdmins()" placeholder="Search by name, email or phone" />
+    </div>
+ 
+    <h2>Admin List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Created At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let admin of filteredAdminsList">
+          <td>{{admin.id}}</td>
+          <td>{{ admin.name }}</td>
+          <td>{{ admin.email }}</td>
+          <td>{{ admin.phone_number }}</td>
+          <td>{{admin.created_at}}</td>
+          <td>
+            <button (click)="editAdmin(admin)">Edit</button>
+            <button (click)="deleteAdmin(admin.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
