@@ -1,0 +1,191 @@
+<p class="heading">Guest Management</p>
+
+<button class="back" (click)="back()">Back</button>
+
+<div *ngIf="currentGuest">
+  <h3 class="add-booking-heading">Edit Guest</h3>
+  <form (ngSubmit)="saveGuest()" class="guest-form" #guestForm="ngForm">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          [(ngModel)]="newGuest.name"
+          name="name"
+          required
+          pattern="^[a-zA-Z ]+$"
+          #name="ngModel"
+        />
+        <div *ngIf="name.invalid && name.touched" class="error-message">
+          Full Name is required and must contain only alphabets and spaces.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          [(ngModel)]="newGuest.email"
+          name="email"
+          required
+          email
+          #email="ngModel"
+          (blur)="checkIfEmailTaken(newGuest.email)"
+        />
+        <div *ngIf="email.invalid && email.touched" class="error-message">
+          A valid Email is required.
+        </div>
+        <div *ngIf="emailTaken" class="error-message">
+          This email is already taken.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input
+          type="text"
+          [(ngModel)]="newGuest.phone"
+          name="phone"
+          required
+          pattern="^\d{10}$"
+          #phone="ngModel"
+          (blur)="checkIfPhoneTaken(newGuest.phone)"
+        />
+        <div *ngIf="phone.invalid && phone.touched" class="error-message">
+          Phone number is required and must be 10 digits.
+        </div>
+        <div *ngIf="phoneTaken" class="error-message">
+          This phone number is already taken.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="nationality">Nationality:</label>
+        <input
+          type="text"
+          [(ngModel)]="newGuest.nationality"
+          name="nationality"
+          required
+        />
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="guestForm.invalid || emailTaken || phoneTaken">Update Guest</button>
+  </form>
+</div>
+
+<div *ngIf="!currentGuest">
+  <h3 class="add-booking-heading">Add New Guest</h3>
+  <form (ngSubmit)="saveGuest()" class="guest-form" #guestForm="ngForm">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          [(ngModel)]="newGuest.name"
+          name="name"
+          required
+          pattern="^[a-zA-Z ]+$"
+          #name="ngModel"
+        />
+        <div *ngIf="name.invalid && name.touched" class="error-message">
+          Full Name is required and must contain only alphabets and spaces.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          [(ngModel)]="newGuest.email"
+          name="email"
+          required
+          email
+          #email="ngModel"
+          (blur)="checkIfEmailTaken(newGuest.email)"/>
+        <div *ngIf="email.invalid && email.touched" class="error-message">
+          A valid Email is required.
+        </div>
+        <div *ngIf="emailTaken" class="error-message">
+          This email is already taken.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input
+          type="text"
+          [(ngModel)]="newGuest.phone"
+          name="phone"
+          required
+          pattern="^\d{10}$"
+          #phone="ngModel"
+          (blur)="checkIfPhoneTaken(newGuest.phone)"
+        />
+        <div *ngIf="phone.invalid && phone.touched" class="error-message">
+          Phone number is required and must be 10 digits.
+        </div>
+        <div *ngIf="phoneTaken" class="error-message">
+          This phone number is already taken.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="nationality">Nationality:</label>
+        <input
+          type="text"
+          [(ngModel)]="newGuest.nationality"
+          name="nationality"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" [disabled]="guestForm.invalid || emailTaken || phoneTaken" class="submit-button">
+        Add Guest
+      </button>
+      <button type="button" class="reset-button" (click)="guestForm.reset()">Reset</button>
+    </div>
+  </form>
+</div>
+
+<br />
+
+<div class="search-container">
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    (input)="searchGuests()"
+    placeholder="Search by name"
+    class="search-input"
+  />
+</div>
+
+<div *ngIf="!currentGuest">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Nationality</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let guest of guests">
+        <td>{{ guest.id }}</td>
+        <td>{{ guest.name }}</td>
+        <td>{{ guest.email }}</td>
+        <td>{{ guest.phone }}</td>
+        <td>{{ guest.nationality }}</td>
+        <td>
+          <button (click)="selectGuestForEdit(guest)">Edit</button>
+          <button (click)="deleteGuest(guest.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
