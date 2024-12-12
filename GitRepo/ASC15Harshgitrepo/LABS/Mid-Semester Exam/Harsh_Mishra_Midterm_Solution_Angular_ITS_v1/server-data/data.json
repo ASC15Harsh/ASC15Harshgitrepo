@@ -1,0 +1,76 @@
+{
+  "issues": [
+    {
+      "id": "1",
+      "title": "Bug in login page",
+      "description": "There is a bug on the login page where users cannot submit their login details.",
+      "status": "Open",
+      "priority": "High",
+      "assignee": "John Doe",
+      "date": "2024-11-14T08:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "title": "UI Improvement in dashboard",
+      "description": "Improve the user interface of the dashboard to make it more user-friendly.",
+      "status": "Open",
+      "priority": "Medium",
+      "assignee": "Jane Smith",
+      "date": "2024-11-14T08:30:00.000Z"
+    },
+    {
+      "id": "3",
+      "title": "Database connection issue",
+      "description": "The application is unable to connect to the database after the recent update.",
+      "status": "Resolved",
+      "priority": "High",
+      "assignee": "Michael Lee",
+      "date": "2024-11-14T09:00:00.000Z"
+    },
+    {
+      "id": "4",
+      "title": "Feature request: Dark mode",
+      "description": "Users have requested an option for dark mode in the app settings.",
+      "status": "Open",
+      "priority": "Low",
+      "assignee": "Emily Watson",
+      "date": "2024-11-15T10:00:00.000Z"
+    },
+    {
+      "id": "6",
+      "title": "Payment gateway integration bug",
+      "description": "The payment gateway is failing to process transactions after the recent update.",
+      "status": "Resolved",
+      "priority": "Critical",
+      "assignee": "Michael Lee",
+      "date": "2024-11-15T11:00:00.000Z"
+    },
+    {
+      "id": "7",
+      "title": "Mobile app crash on startup",
+      "description": "The mobile app crashes immediately upon launch for users on iOS.",
+      "status": "Closed",
+      "priority": "High",
+      "assignee": "Jane Smith",
+      "date": "2024-11-15T11:30:00.000Z"
+    },
+    {
+      "id": "8",
+      "title": ",jbjds",
+      "description": "jks",
+      "priority": "Low",
+      "status": "Open",
+      "assignee": "kvs",
+      "date": "2024-11-15T09:16:05.958Z"
+    },
+    {
+      "id": "9",
+      "title": ",jdsck",
+      "description": ",jdsck",
+      "priority": "Low",
+      "status": "Open",
+      "assignee": ",jdsck",
+      "date": "2024-11-15T11:52:48.839Z"
+    }
+  ]
+}

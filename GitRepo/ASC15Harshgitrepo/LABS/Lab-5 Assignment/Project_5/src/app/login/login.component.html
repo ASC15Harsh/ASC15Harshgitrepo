@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>EMPLOYEE MANAGEMENT PORTAL</h1>
+
+<form (ngSubmit)="onSubmit()">
+    
+    <label for="username">Enter your username:</label>
+    <input type="text" id="username" [(ngModel)]="username" name="username" required />
+
+    <label for="password">Enter your password:</label>
+    <input type="password" id="password" [(ngModel)]="password" name="password" required />
+
+    <button type="submit">Submit</button>
+    <div *ngIf="errorMessage" style="color: red;">
+      {{ errorMessage }}
+    </div>
+  </form>
+</div>

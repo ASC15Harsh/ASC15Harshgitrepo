@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form Static</title>
+
+    <script>
+        //Load existing registration data from local storage when the page loads
+        window.onload = function() {
+            loadRegistrationData();
+        };
+    
+        function validateRegistrationForm() {
+            const name = document.forms["registrationForm"]["name"].value;
+            const password = document.forms["registrationForm"]["password"].value;
+            const address = document.forms["registrationForm"]["address"].value;
+    
+            if (!name || !password || !address) {
+                alert("Please fill in all required fields in the registration form.");
+                return false;
+            }
+    
+            alert("Form submitted successfully!");
+    
+            const peopleCount = document.forms["registrationForm"]["peopleCount"].value;
+            const spicyMeter = document.forms["registrationForm"]["spicyMeter"].value;
+            const sugarLevel = document.forms["registrationForm"]["sugarLevel"].value;
+            const beverage = Array.from(document.forms["registrationForm"]["beverage"])
+                .filter(input => input.checked)
+                .map(input => input.value).join(", ");
+            const gender = document.forms["registrationForm"]["gender"].value;
+            const meal = document.forms["registrationForm"]["meal"].value;
+            const payment = document.forms["registrationForm"]["payment"].value;
+            const dob = document.forms["registrationForm"]["dob"].value;
+    
+            addRegistrationData(name, address, peopleCount, spicyMeter, sugarLevel, beverage, gender, meal, payment, dob);
+    
+            // Store data in local storage
+            storeRegistrationData(name, address, peopleCount, spicyMeter, sugarLevel, beverage, gender, meal, payment, dob);
+    
+            return true; 
+        }
+    
+        function addRegistrationData(name, address, peopleCount, spicyMeter, sugarLevel, beverage, gender, meal, payment, dob) {
+            const tableBody = document.getElementById("registrationDataTable").getElementsByTagName('tbody')[0];
+            const newRow = tableBody.insertRow();
+    
+            newRow.innerHTML = `
+                <td>${name}</td>
+                <td>${address}</td>
+                <td>${peopleCount}</td>
+                <td>${spicyMeter}</td>
+                <td>${sugarLevel}</td>
+                <td>${beverage}</td>
+                <td>${gender}</td>
+                <td>${meal}</td>
+                <td>${payment}</td>
+                <td>${dob}</td>
+            `;
+        }
+    
+        function storeRegistrationData(name, address, peopleCount, spicyMeter, sugarLevel, beverage, gender, meal, payment, dob) {
+            const registrationData = JSON.parse(localStorage.getItem('registrationData')) || [];
+            registrationData.push({ name, address, peopleCount, spicyMeter, sugarLevel, beverage, gender, meal, payment, dob });
+            localStorage.setItem('registrationData', JSON.stringify(registrationData));
+        }
+    
+        function loadRegistrationData() {
+            const registrationData = JSON.parse(localStorage.getItem('registrationData')) || [];
+            registrationData.forEach(data => {
+                addRegistrationData(data.name, data.address, data.peopleCount, data.spicyMeter, data.sugarLevel, data.beverage, data.gender, data.meal, data.payment, data.dob);
+            });
+        }
+    
+        function updateField(fieldName) {
+            if (fieldName === 'beverage') {
+                const beverages = Array.from(document.forms["registrationForm"]["beverage"])
+                    .filter(input => input.checked)
+                    .map(input => input.value)
+                    .join(", ");
+                document.getElementById('beverageValue').innerText = beverages;
+            } else {
+                const fieldValue = document.forms["registrationForm"][fieldName].value;
+                document.getElementById(fieldName + "Value").innerText = fieldValue;
+            }
+        }
+    
+        function clearLocalStorage() {
+            localStorage.removeItem('registrationData');
+            alert("All registration data has been cleared.");
+            document.getElementById("registrationDataTable").getElementsByTagName('tbody')[0].innerHTML = ""; // Clear the displayed data
+        }
+    </script>
+    
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black; 
+            margin: 0;
+            padding: 20px;
+            color: black;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+            .form-area{
+            background-color: cyan;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #555;
+        }
+
+        th {
+            padding: 10px;
+            text-align: left;
+            background-color: #444;
+            color: white;
+        }
+
+        h1 {
+            font-style: italic;
+            border: solid 3px aqua;
+            background-color: black;
+            color: #fff;
+            font-size: 40px;
+            margin: 0;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        textarea {
+            height: 60px; 
+            resize: none; 
+            border: 1px solid #ccc; 
+            outline: none; 
+        }
+
+        textarea:focus {
+            border: 2px solid blue; 
+        }
+
+        .audio-video {
+            margin-top: 50px;
+        }
+        .registration-data {
+            margin-top: 20px;
+            background-color: cyan;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <h1>Tasteful Temptations</h1>
+            </td>
+            <td>
+                <img src="food.png" alt="Delicious Food" style="max-width: 100%; height: auto; border-radius: 10px;"/>
+            </td>
+        </tr>
+    </table>
+
+    <div class="container">
+        <div class="form-area">
+            <form name="registrationForm" onsubmit="return validateRegistrationForm();">
+                <div style="margin-bottom: 20px;">
+                    <label>Enter your Name:</label>
+                    <input type="text" name="name" required
+                        style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;" 
+                        oninput="updateField('name')">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label>Create your Password:</label>
+                    <input type="password" name="password" required
+                        style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;" 
+                        oninput="updateField('password')">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label>Address:</label>
+                    <textarea name="address" cols="15" rows="3"
+                        style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;"
+                        oninput="updateField('address')"></textarea>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label>Beverage Preference:</label>
+                    <input type="checkbox" name="beverage" value="Tea" onchange="updateField('beverage')">
+                    <label style="display: inline;">Tea</label>
+                    <input type="checkbox" name="beverage" value="Coffee" onchange="updateField('beverage')">
+                    <label style="display: inline;">Coffee</label>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label>Gender:</label>
+                    <input type="radio" name="gender" value="Male" onchange="updateField('gender')">
+                    <label style="display: inline;">Male</label>
+                    <input type="radio" name="gender" value="Female" onchange="updateField('gender')">
+                    <label style="display: inline;">Female</label>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label>Meal:</label>
+                    <input type="radio" name="meal" value="Veg" onchange="updateField('meal')">
+                    <label style="display: inline;">Veg</label>
+                    <input type="radio" name="meal" value="Non-Veg" onchange="updateField('meal')">
+                    <label style="display: inline;">Non-Veg</label>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label>Payment Mode:</label>
+                    <select name="payment" required onchange="updateField('payment')"
+                        style="width: 97%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                        <option>--Select--</option>
+                        <option value="credit">Credit Card</option>
+                        <option value="debit">Debit Card</option>
+                        <option value="UPI">UPI</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label>Date of Birth:</label>
+                    <input type="date" name="dob" required
+                        style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;" 
+                        onchange="updateField('dob')">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label>People count (1-10):</label>
+                    <input type="range" name="peopleCount" min="1" max="10" value="1" style="width: 100% " 
+                        oninput="this.nextElementSibling.value = this.value; updateField('peopleCount')">
+                    <output style="font-weight: bold; margin-top: 10px;">1</output>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label>Spicy meter (1-10):</label>
+                    <input type="range" name="spicyMeter" min="1" max="10" value="1" style="width: 100%;" 
+                        oninput="this.nextElementSibling.value = this.value; updateField('spicyMeter')">
+                    <output style="font-weight: bold; margin-top: 10px;">1</output>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label>Sugar Level for Tea/Coffee (1-10):</label>
+                    <input type="range" name="sugarLevel" min="1" max="10" value="1" style="width: 100%;" 
+                        oninput="this.nextElementSibling.value = this.value; updateField('sugarLevel')">
+                    <output style="font-weight: bold; margin-top: 10px;">1</output>
+                </div>
+
+                <input type="submit" value="Register Now!" 
+                    style="color: red; font-weight: bold; background-color: yellow; height: 50px; width: 48%; border: none; border-radius: 4px; margin-top: 10px;">
+                <input type="reset" value="Reset Form" onclick="resetForm();" 
+                    style="color: red; font-weight: bold; background-color: yellow; height: 50px; width: 48%; border: none; border-radius: 4px; margin-top: 10px;">
+            </form>
+        </div>
+
+    </div>
+    <div class="registration-data">
+        <h2>Registration Data</h2>
+        <table id="registrationDataTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>People Count</th>
+                    <th>Spicy Meter</th>
+                    <th>Sugar Level</th>
+                    <th>Beverage</th>
+                    <th>Gender</th>
+                    <th>Meal</th>
+                    <th>Payment Mode</th>
+                    <th>Date of Birth</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Registration data will be added here -->
+            </tbody>
+        </table>
+        <button style="color: red; font-weight: bold; background-color: yellow; height: 30px; width: 10%; border: none; border-radius: 4px; margin-top: 10px;" onclick="clearLocalStorage()">Clear All Data</button>
+    </div>
+
+    <div class="audio-video">
+        <h1 style="font-style: italic;">Audio & Video</h1>
+        <br />
+        <br />
+        <audio src="birds-19624.mp3" controls style="width: 100%;"></audio>
+        <video src="3826855-hd_1920_1080_24fps.mp4" controls width="500" height="300" style="display: block; margin-top: 10px;"></video>
+        <iframe width="656" height="369" src="https://www.youtube.com/embed/KNYSyALxiAk"
+            title="ASMR MUKBANG | KFC BURGERS 🍔 CHICKEN 🍗 FRENCH FRIES 🍟 EATING 햄버거 양념치킨 감자튀김 소스 퐁당! 먹방"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<h2>Add New Issue</h2>
+<button class="back-btn" (click)="goBack()">Back</button>
+<form (ngSubmit)="addNewIssue()" #issueForm="ngForm">
+  <label for="title">Title:</label>
+  <input type="text" id="title" [(ngModel)]="issue.title" name="title" required #title="ngModel">
+ 
+
+  <label for="description">Description:</label>
+  <textarea id="description" [(ngModel)]="issue.description" name="description" required #description="ngModel"></textarea>
+  
+
+  <label for="priority">Priority:</label>
+  <select id="priority" [(ngModel)]="issue.priority" name="priority" required #priority="ngModel">
+    <option value="Low">Low</option>
+    <option value="Medium">Medium</option>
+    <option value="High">High</option>
+  </select>
+ 
+
+  <label for="status">Status:</label>
+  <select id="status" [(ngModel)]="issue.status" name="status" required #status="ngModel">
+    <option value="Open">Open</option>
+    <option value="In Progress">In Progress</option>
+    <option value="Resolved">Resolved</option>
+    <option value="Closed">Closed</option>
+  </select>
+
+  <label for="assignee">Assignee:</label>
+  <input type="text" id="assignee" [(ngModel)]="issue.assignee" name="assignee" required #assignee="ngModel">
+  
+
+  <button type="submit">Add Issue</button>
+</form>

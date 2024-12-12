@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Registration Form</title>
+    <script>
+        function validateRegistrationForm() {
+            const name = document.forms["registrationForm"]["name"].value;
+            const password = document.forms["registrationForm"]["password"].value;
+            const address = document.forms["registrationForm"]["address"].value;
+
+            if (!name || !password || !address) {
+                alert("Please fill in all required fields in the registration form.");
+                return false;
+            }
+            return true;
+        }
+
+
+    </script>
+</head>
+
+<body style="font-family: Arial, sans-serif; background-color: pink; margin: 0; padding: 20px;">
+
+    <style>
+        table {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        td {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-style: italic;
+            border: solid 3px aqua;
+            background-color: aquamarine;
+            font-size: 40px;
+            margin: 0;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        
+    </style>
+
+
+    <table>
+        <tr>
+            <td>
+                <h1>Tasteful Temptations</h1>
+            </td>
+            <td>
+                <img src="food.png" alt="Delicious Food" />
+            </td>
+        </tr>
+    </table>
+
+
+
+    <div style="background-color: cyan; padding: 50px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+        <form name="registrationForm" onsubmit="return validateRegistrationForm();">
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 5px;">Enter your Name:</label>
+                <input type="text" name="name" required
+                    style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 5px;">Create your Password:</label>
+                <input type="password" name="password" required
+                    style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 5px;">Address:</label>
+                <textarea name="address" cols="15" rows="3"
+                    style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label>Beverage Preference:</label>
+                <input type="checkbox" name="beverage" value="Tea">
+                <label style="display: inline;">Tea</label>
+                <input type="checkbox" name="beverage" value="Coffee">
+                <label style="display: inline;">Coffee</label>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label>Gender:</label>
+                <input type="radio" name="gender" value="Male">
+                <label style="display: inline;">Male</label>
+                <input type="radio" name="gender" value="Female">
+                <label style="display: inline;">Female</label>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label>Meal:</label>
+                <input type="radio" name="meal" value="Veg">
+                <label style="display: inline;">Veg</label>
+                <input type="radio" name="meal" value="Nonveg">
+                <label style="display: inline;">Nonveg</label>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label>Payment Mode:</label>
+                <select name="payment" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                    <option>--Select--</option>
+                    <option value="credit">Credit Card</option>
+                    <option value="debit">Debit Card</option>
+                    <option value="UPI">UPI</option>
+                </select>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label>Date of Birth:</label>
+                <input type="date" name="dob" required
+                    style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label>People count (1-10):</label>
+                <input type="range" name="range" min="1" max="10" value="1" style="width: 100%;">
+                <output style="font-weight: bold; margin-top: 10px;"></output>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label>Spicy meter (1-10):</label>
+                <input type="range" name="range" min="1" max="10" value="1" style="width: 100%;">
+                <output style="font-weight: bold; margin-top: 10px;"></output>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label>Sugar Level for Tea/Coffee (1-10):</label>
+                <input type="range" name="range" min="1" max="10" value="1" style="width: 100%;">
+                <output style="font-weight: bold; margin-top: 10px;"></output>
+            </div>
+
+
+            <input type="submit" value="Register Now!"
+                style="color: red; font-weight: bold; background-color: yellow; height: 50px; width: 48%; border: none;  border-radius: 4px; margin-top: 10px;">
+            <input type="reset" value="Reset Form"
+                style="color: red; font-weight: bold; background-color: yellow; height: 50px; width: 48%; border: none; border-radius: 4px; margin-top: 10px;">
+        </form>
+    </div>
+
+    <div style="margin-top: 50px;">
+        <h1 style="font-style: italic; color: #333;">Audio & Video</h1>
+        <br />
+        <audio src="birds-19624.mp3" controls style="width: 100%;"></audio>
+        <video src="3826855-hd_1920_1080_24fps.mp4" controls width="500" height="300"
+            style="display: block; margin-top: 10px;"></video>
+        <br />
+
+        <iframe width="656" height="369" src="https://www.youtube.com/embed/KNYSyALxiAk"
+            title="ASMR MUKBANG | KFC BURGERS 🍔 CHICKEN 🍗 FRENCH FRIES 🍟 EATING 햄버거 양념치킨 감자튀김 소스 퐁당! 먹방"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+</body>
+
+</html>

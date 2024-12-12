@@ -1,0 +1,84 @@
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 97vh;
+    /* background: linear-gradient(to right, #ff7e5f, #feb47b); Gradient background */
+    background: black;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 0 20px;
+  }
+  
+  h1 {
+    font-size: 3em;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  button {
+    background-color: #ffffff; /* White button background */
+    color: #333; /* Dark text color */
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+  }
+  .logout-btn1 {
+    position: absolute;
+    top: 20px;
+    right: 200px;
+    z-index: 10;
+  }
+  
+  .logout-btn2 {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+  }
+  .make-order-btn{
+    position: absolute;
+    top: 600px;
+    right: 580px;
+    z-index: 10;
+  }
+  .view-order-btn{
+    position: absolute;
+    top: 600.5px;
+    right: 800px;
+    z-index: 10;
+  }
+
+  button:hover {
+    background-color: #feb47b; /* Light orange on hover */
+    color: #fff; /* Text color changes to white on hover */
+    transform: translateY(-5px); /* Slight lift effect */
+  }
+  
+  button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 132, 66, 0.5); /* Focus outline effect */
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5em;
+    }
+    
+    button {
+      font-size: 16px;
+      padding: 12px 25px;
+    }
+  }
+  

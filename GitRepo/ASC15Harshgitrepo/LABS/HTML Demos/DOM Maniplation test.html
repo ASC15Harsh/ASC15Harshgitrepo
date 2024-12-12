@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Buttons Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50; 
+            color: white; 
+        }
+        button:hover {
+            background-color: #45a049; 
+        }
+        #videoContainer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dynamic webpages</h1>
+    <button id="Chatgpt" onclick="chatgpt()">Chatgpt</button>
+    <button id="Copilot" onclick="copilot()">Copilot</button>
+    <button id="Bard" onclick="bard()">Bard</button>
+
+
+
+    <div id="videoContainer"></div>
+
+    <script>
+        function chatgpt() {
+            const videoContainer = document.getElementById('videoContainer');
+            videoContainer.innerHTML = '<iframe width="656" height="369" src="https://www.youtube.com/embed/DQacCB9tDaw" title="Introducing GPT-4o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        }
+        function copilot() {
+            const videoContainer = document.getElementById('videoContainer');
+            videoContainer.innerHTML = '<iframe width="656" height="369" src="https://www.youtube.com/embed/4IUnol4hLyQ" title="Microsoft Unveiled NEW COPILOT With Features That Will Blow Your Mind" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        }
+        function bard() {
+            const videoContainer = document.getElementById('videoContainer');
+            videoContainer.innerHTML = '<iframe width="656" height="369" src="https://www.youtube.com/embed/lr87yrvK86w" title="Introducing Extensions ✨ | Bard" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        }
+
+
+    </script>
+
+<!-- <h1>Select a Video</h1>
+<select id="videoDropdown" onchange="navigateToVideo()">
+    <option value="">Select a video</option>
+    <option value="https://www.youtube.com/embed/DQacCB9tDaw">ChatGPT Video</option>
+    <option value="https://www.youtube.com/embed/4IUnol4hLyQ">Copilot Video</option>
+    <option value="https://www.youtube.com/embed/lr87yrvK86w">Bard Video</option>
+</select>
+    
+<script>
+        function navigateToVideo() {
+            const dropdown = document.getElementById('videoDropdown');
+            const selectedValue = dropdown.value;
+            const videoContainer = document.getElementById('videoContainer');
+
+            if (selectedValue) {
+                videoContainer.innerHTML = '<iframe width="656" height="369" src="' + selectedValue + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+            } else {
+                videoContainer.innerHTML = ''; // Clear the container if no selection
+            }
+        }
+</script> -->
+
+    <h1>Select a Video</h1>
+    <select id="videoDropdown" onchange="navigateToVideo()">
+        <option value="">Select a video</option>
+        <option value="https://www.youtube.com/embed/DQacCB9tDaw">ChatGPT Video</option>
+        <option value="https://www.youtube.com/embed/4IUnol4hLyQ">Copilot Video</option>
+        <option value="https://www.youtube.com/embed/lr87yrvK86w">Bard Video</option>
+    </select>
+
+    <script>
+        function navigateToVideo() {
+            const dropdown = document.getElementById('videoDropdown');
+            const selectedValue = dropdown.value;
+            if (selectedValue) {
+                window.open(selectedValue, '_blank'); //new page
+                //_self for openeing in same page 
+            }
+        }
+    </script>
+
+    
+</body> 
+</html>

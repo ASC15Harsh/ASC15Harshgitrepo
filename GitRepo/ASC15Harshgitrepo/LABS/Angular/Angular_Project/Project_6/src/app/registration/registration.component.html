@@ -1,0 +1,214 @@
+<app-navbar></app-navbar>
+<table>
+    <tr>
+        <td>
+            <h1>Tasteful Temptations</h1>
+        </td>
+        <td>
+            <img src="../../assets/food.png" alt="Delicious Food" style="max-width: 100%; height: auto; border-radius: 10px;" />
+        </td>
+    </tr>
+</table>
+
+<div class="container">
+    <div class="form-area">
+        <form (ngSubmit)="validateRegistrationForm()" #registrationForm="ngForm">
+            <div style="margin-bottom: 20px;">
+                <label>Enter your Name:</label>
+                <input type="text" [(ngModel)]="name" name="name" required
+                    style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label>Create your Password:</label>
+                <input type="password" [(ngModel)]="password" name="password" required
+                    style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label>Address:</label>
+                <textarea [(ngModel)]="address" name="address" cols="15" rows="3"
+                    style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label>Beverage Preference:</label>
+                <input type="checkbox" (change)="toggleBeverage('Tea')" [checked]="beverage.includes('Tea')">
+                <label style="display: inline;">Tea</label>
+                <input type="checkbox" (change)="toggleBeverage('Coffee')" [checked]="beverage.includes('Coffee')">
+                <label style="display: inline;">Coffee</label>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label>Gender:</label>
+                <input type="radio" [(ngModel)]="gender" name="gender" value="Male">
+                <label style="display: inline;">Male</label>
+                <input type="radio" [(ngModel)]="gender" name="gender" value="Female">
+                <label style="display: inline;">Female</label>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label>Meal:</label>
+                <input type="radio" [(ngModel)]="meal" name="meal" value="Veg">
+                <label style="display: inline;">Veg</label>
+                <input type="radio" [(ngModel)]="meal" name="meal" value="Non-Veg">
+                <label style="display: inline;">Non-Veg</label>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label>Payment Mode:</label>
+                <select [(ngModel)]="payment" name="payment" required
+                    style="width: 97%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                    <option value="">--Select--</option>
+                    <option value="credit">Credit Card</option>
+                    <option value="debit">Debit Card</option>
+                    <option value="UPI">UPI</option>
+                </select>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label>Date of Birth:</label>
+                <input type="date" [(ngModel)]="dob" name="dob" required
+                    style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label>People count (1-10):</label>
+                <input type="range" [(ngModel)]="peopleCount" name="peopleCount" min="1" max="10" value="1" style="width: 100%">
+                <output style="font-weight: bold; margin-top: 10px;">{{ peopleCount }}</output>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label>Spicy meter (1-10):</label>
+                <input type="range" [(ngModel)]="spicyMeter" name="spicyMeter" min="1" max="10" value="1" style="width: 100%">
+                <output style="font-weight: bold; margin-top: 10px;">{{ spicyMeter }}</output>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label>Sugar Level for Tea/Coffee (1-10):</label>
+                <input type="range" [(ngModel)]="sugarLevel" name="sugarLevel" min="1" max="10" value="1" style="width: 100%">
+                <output style="font-weight: bold; margin-top: 10px;">{{ sugarLevel }}</output>
+            </div>
+
+            <button type="submit" style="color: red; font-weight: bold; background-color: yellow; height: 50px; width: 48%; border: none; border-radius: 4px; margin-top: 10px;">
+                Register Now!
+            </button>
+            <button type="button" (click)="resetForm()" style="color: red; font-weight: bold; background-color: yellow; height: 50px; width: 48%; border: none; border-radius: 4px; margin-top: 10px;">
+                Reset Form
+            </button>
+        </form>
+    </div>
+
+    <div class="summary-table">
+        <h2>Summary</h2>
+        <table id="summaryTable">
+            <tr>
+                <td>Name:</td>
+                <td>{{ name }}</td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td>{{ password }}</td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td>{{ address }}</td>
+            </tr>
+            <tr>
+                <td>Beverage Preference:</td>
+                <td>{{ beverage.join(', ') }}</td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>{{ gender }}</td>
+            </tr>
+            <tr>
+                <td>Meal:</td>
+                <td>{{ meal }}</td>
+            </tr>
+            <tr>
+                <td>Payment Mode:</td>
+                <td>{{ payment }}</td>
+            </tr>
+            <tr>
+                <td>Date of Birth:</td>
+                <td>{{ dob }}</td>
+            </tr>
+            <tr>
+                <td>People Count:</td>
+                <td>{{ peopleCount }}</td>
+            </tr>
+            <tr>
+                <td>Spicy Meter:</td>
+                <td>{{ spicyMeter }}</td>
+            </tr>
+            <tr>
+                <td>Sugar Level:</td>
+                <td>{{ sugarLevel }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="registration-data">
+    <h2>Registration Data</h2>
+    <table id="registrationDataTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>People Count</th>
+                <th>Spicy Meter</th>
+                <th>Sugar Level</th>
+                <th>Beverage</th>
+                <th>Gender</th>
+                <th>Meal</th>
+                <th>Payment Mode</th>
+                <th>Date of Birth</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of registrationData">
+                <td>{{ data.name }}</td>
+                <td>{{ data.address }}</td>
+                <td>{{ data.peopleCount }}</td>
+                <td>{{ data.spicyMeter }}</td>
+                <td>{{ data.sugarLevel }}</td>
+                <td>{{ data.beverage.join(', ') }}</td>
+                <td>{{ data.gender }}</td>
+                <td>{{ data.meal }}</td>
+                <td>{{ data.payment }}</td>
+                <td>{{ data.dob }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button style="color: red; font-weight: bold; background-color: yellow; height: 30px; width: 10%; border: none; border-radius: 4px; margin-top: 10px;"
+        (click)="clearLocalStorage()">Clear All Data</button>
+</div>
+
+<div class="audio-video">
+    <h1 style="font-style: italic;">Audio & Video</h1>
+    <br />
+    <br />
+    <audio src="../../assets/birds-19624.mp3" controls style="width: 100%;"></audio>
+    <video src="../../assets/3826855-hd_1920_1080_24fps.mp4" controls width="500" height="300"
+        style="display: block; margin-top: 10px;"></video>
+    <br />
+    <br />
+</div>
+<div>
+<h3 style="color:white;"> Meet our AI Partners</h3>
+    <button style="font-size: larger;" id="Chatgpt" (click)="chatgpt()">Chatgpt</button>
+    <button style="font-size: larger;" id="Copilot" (click)="copilot()">Copilot</button>
+    <button style="font-size: larger;" id="Bard" (click)="bard()">Bard</button>
+    <div id="videoContainer"></div>
+    <br />
+    <br />
+    <br />
+    <iframe width="656" height="369" src="https://www.youtube.com/embed/KNYSyALxiAk"
+        title="ASMR MUKBANG | KFC BURGERS 🍔 CHICKEN 🍗 FRENCH FRIES 🍟 EATING 햄버거 양념치킨 감자튀김 소스 퐁당! 먹방"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+<br />

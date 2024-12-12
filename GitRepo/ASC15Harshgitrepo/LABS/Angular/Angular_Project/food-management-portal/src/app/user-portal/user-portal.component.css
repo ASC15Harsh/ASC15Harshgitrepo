@@ -1,0 +1,169 @@
+/* Global Styles */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+::ng-deep body {
+  background-color: #f4f7fa;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+h5 {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+/* Logout Button */
+.logout-btn {
+  background-color: #007bff; /* Blue color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+  position: absolute;
+  top: 20px; /* Position it 20px from the top */
+  right: 20px; /* Position it 20px from the right */
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.logout-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Form Styles */
+form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+form input, form select, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus, form select:focus, form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+form textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+form h5 {
+  margin-top: 20px;
+}
+
+/* Food Preferences */
+.food-preference-item {
+  margin-bottom: 10px;
+}
+
+.food-preference-item select {
+  width: auto;
+  margin-left: 10px;
+}
+
+/* Table Styles */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+}
+
+.table th, .table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #007bff;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table td ul {
+  list-style-type: none;
+}
+
+.table td span {
+  font-weight: bold;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .table th, .table td {
+      font-size: 0.9rem;
+      padding: 8px;
+  }
+}
+
+/* Responsive Form */
+@media (max-width: 768px) {
+  form {
+      padding: 20px;
+  }
+
+  form input, form select, form textarea {
+      padding: 8px;
+      font-size: 0.9rem;
+  }
+
+  form button {
+      padding: 10px;
+  }
+
+  h1 {
+      font-size: 2rem;
+  }
+
+  .food-preference-item select {
+      width: 100%;
+  }
+}

@@ -1,0 +1,34 @@
+<!-- What is nav?
+ The nav is a semantic tag in HTML5. -->
+<!-- 1. The Structure -->
+ <!-- Make it responsive by using navbar-expand-sm -->
+  <header>
+<nav class="navbar navbar-dark navbar-expand-sm container" style="background-color:black">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <!-- We will make a router Link -->
+            <a class="nav-link">Employee List (JSON Server)</a>
+        </li >
+        <!-- Add Employee -->
+        <li class="nav-item">
+            <a class="nav-link">Add Employee (JSON Server)</a>
+        </li>
+        <!-- Employee List with Spring Boot -->
+        <li class="nav-item">
+            <a class="nav-link">Employee List (SpringBoot)</a>
+        </li>
+        <!-- Add Employee with Spring Boot -->
+        <li class="nav-item">
+            <a class="nav-link">Add Employee (SpringBoot)</a>
+        </li>
+    </ul>
+</nav>
+</header>
+<section class="container">
+<!-- <h1>The angular component will come in here!</h1> -->
+<router-outlet></router-outlet>
+</section>
+<footer class="container" style="background-color: aquamarine;">
+    <h1>Thanks for using our App!</h1>
+    <pre>© 2021    -   Angular Demo App</pre>
+</footer>
